@@ -1,5 +1,7 @@
 # Benchmarking Instances Generator for Aircraft Conflict Resolution
-Aircraft Conflict Resolution is one of the major tasks of computer-aided Air Traffic Management and represents a challenging optimization problem. This code generates benchmarking instances, each of them consisting of a set of flights with initial positions and vectors of velocities.
+This project contains data files (.cpp code and user manual) for the generator presented in the paper M. Pelegrín & M. Cerulli (2021) "Aircraft conflict resolution:  A benchmark generator".
+
+Aircraft Conflict Resolution is one of the major tasks of computer-aided Air Traffic Management and represents a challenging optimization problem. This code generates benchmarking instances, each of them consisting of a set of flights with initial positions and vectors of velocities. 
 
 You will be able to generate:
 
@@ -8,3 +10,5 @@ You will be able to generate:
 	* Random 2D and 3D scenarios.
 	
 	* Pseudo-random 2D and 3D scenarios, where the trajectories meet a predefined traffic congestion.
+
+
