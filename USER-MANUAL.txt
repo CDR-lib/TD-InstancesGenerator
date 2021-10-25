@@ -1,4 +1,5 @@
-This program is an implementation of the benchmark generator in the paper "Aircraft conflict resolution:  A benchmark generator", written by Mercedes Pelegrín and Martina Cerulli. In particular, this program is to produce testing instances of the Tactical Deconfliction (TD) problem in the context of Air Traffic Management, also known as aircraft Conflict Detection and Resolution, or just Conflict Resolution.
+This program is an implementation of the benchmark generator in the paper "Aircraft conflict resolution:  A benchmark generator", written by Mercedes Pelegrín and Martina Cerulli.
+In particular, this program is to produce testing instances of the Tactical Deconfliction (TD) problem in the context of Air Traffic Management, also known as aircraft Conflict Detection and Resolution, or just Conflict Resolution.
  
 Every feedback is very welcome. If you have found a bug or have problems, or wish to give us any advise, please contact us:
 
