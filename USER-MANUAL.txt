@@ -35,16 +35,16 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -f      ["instance_file_name"] [output to console] (print generated instance to a file)
 -seed	[random_seed] [14]
 -mode	[0,...,8/ "CP","RCP","RP","RRP","GP","RGP","PR","R","SP","RSP","PL","RPL","G3dP","RG3dP"] [6]
-    	0/"CP": circle
-    	1/"RCP": random circle
-    	2/"RP": rhomboidal
-    	3/"RRP": random rhomboidal
-    	4/"GP": grid
-    	5/"RGP": random grid
-    	6/"PR2": 2D pseudo-random
-    	7/"R2": 2D random 
-    	8/"SP": sphere
-    	9/"RSP": random sphere
+    	   0/"CP": circle
+        1/"RCP": random circle
+    	   2/"RP": rhomboidal
+    	   3/"RRP": random rhomboidal
+    	   4/"GP": grid
+    	   5/"RGP": random grid
+    	   6/"PR2": 2D pseudo-random
+    	   7/"R2": 2D random 
+    	   8/"SP": sphere
+    	   9/"RSP": random sphere
         10/"PL": polyhedral
         11/"RPL": random polyhedral
         12/"QP": cubic
@@ -77,6 +77,9 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -VP         [number of vertical planes (VPs)] [2]     (only polyhedral)
 -dHP        [distance between consecutive HPs] [3*D]  (only polyhedral)
 -dVP        [distance between consecutive VPs] [3*D]  (only polyhedral)
+-mx         [list of number of horizontal trails at each horizontal plane, separated by spaces] [2 2 2]
+-my         [list of number of slopping trails at each horizontal plane, separated by spaces] [2 2 2]      
+-mz         [list of number of sloppingl trails at each vertical plane, separated by spaces] [2 2]  (only polyhedral)
 -nx         [number of aircraft on each horizontal trail] [1]
 -ny         [number of aircraft on each slopping trail located at a horizontal plane] [1]
 -nz         [number of aircraft on each slopping trail located at a vertical plane] [1] (only polyhedral)
@@ -84,13 +87,10 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -dy         [distance between consecutive slopping trails (on the same horizontal plane, if polyhedral)] [3*D]  
 -dz         [distance between consecutive slopping trails on the same vertical plane] [3*D]  (only polyhedral)
 -d_aircraft [distance between consecutive aircraft on the same trail] [2*D] 
--alpha      [list of slopes in radians of slopping trails at the different horizontal planes, separated by spaces] [\pi/6 \pi/6 \pi/6]
--alphad     [list of slopes in degrees of slopping trails at the different horizontal planes, separated by spaces] [30 30 30]
+-alpha      [list of slopes in radians of slopping trails at the different horizontal planes, separated by spaces] [\pi/6 \pi/6 \pi/6](polyhedral/cubic) [\pi/4](rhomboidal/grid)
+-alphad     [list of slopes in degrees of slopping trails at the different horizontal planes, separated by spaces] [30 30 30](polyhedral/cubic) [45](rhomboidal/grid)
 -beta       [list of slopes in radians of slopping trails at the different vertical planes, separated by spaces] [2\pi/3 2\pi/3] (only polyhedral)
 -betad      [list of slopes in degrees of slopping trails at the different vertical planes, separated by spaces] [120 120] (only polyhedral)
--mx         [list of number of horizontal trails at each horizontal plane, separated by spaces] [2 2 2]
--my         [list of number of slopping trails at each horizontal plane, separated by spaces] [2 2 2]      
--mz         [list of number of sloppingl trails at each vertical plane, separated by spaces] [2 2]  (only polyhedral)
 
 *** Flags for random predefined scenarios (modes 1,3,5 and 9,11,13)
 (angle=predefined_angle+dev, dev in [hamin,hamax])
@@ -129,7 +129,7 @@ The corresponding scenario will be polyhedral, with 3 horizontal planes and 2 ve
 0-CP- Circle problem: ./generator -mode 0 -vmin 380 -vmax 400 -r 220
 1-RCP- Random circle problem: ./generator -mode RCP -r 300 -seed 15 -secInixd 90
 2-RP- Rhomboidal problem: ./generator -mode 2 -w 8 -h 8 -nx 1 -ny 1 
-3-RRP- Random rhomboidal problem: ./generator -mode 3 -w 8 -h 8 -mx 3 -ny 2 -alphad 45
+3-RRP- Random rhomboidal problem: ./generator -mode 3 -w 8 -h 8 -mx 3 -ny 2 -alphad 30
 4-GP- Grid problem: ./generator -mode GP -mx 3 -my 4 -nx 2 -d_aircraft 15
 5-RGP- Random grid problem: ./generator -mode RGP -mx 3 -my 4 -nx 2 -hamin 0 -hamax 0.628
 6-PR2- 2D pseudo-random problem: ./generator -mode 6 -n 20 -nc 21 -h 300
