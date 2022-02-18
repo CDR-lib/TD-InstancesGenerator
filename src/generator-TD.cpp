@@ -53,7 +53,7 @@ int randomInt(int a, int b) {
 bool areSepatered(int i, int j){
 	float xr0=x_0[i]-x_0[j];
 	float yr0=y_0[i]-y_0[j];
-    float zr0=z_0[i]-z_0[j];
+  float zr0=z_0[i]-z_0[j];
 	bool areSepatered= (xr0*xr0+yr0*yr0+zr0*zr0 >= D*D);
 	return areSepatered;
 }
@@ -61,13 +61,13 @@ bool areSepatered(int i, int j){
 double dist_min(int i, int j){
 	double xr0=x_0[i]-x_0[j];
 	double yr0=y_0[i]-y_0[j];
-    	double zr0=z_0[i]-z_0[j];
+  double zr0=z_0[i]-z_0[j];
 	double vrx=vx[i]-vx[j];
 	double vry=vy[i]-vy[j];
 	double vrz=vz[i]-vz[j];
 	float negative_zero=-1/std::numeric_limits<float>::infinity();
 	double a = (vrx*xr0+vry*yr0+vrz*zr0);
-    	double dmin = (xr0*xr0+yr0*yr0+zr0*zr0) - (a*a)/(vrx*vrx+vry*vry+vrz*vrz); 	//minimum distance among i and j
+  double dmin = (xr0*xr0+yr0*yr0+zr0*zr0) - (a*a)/(vrx*vrx+vry*vry+vrz*vrz); 	//minimum distance among i and j
 	return dmin;
 }
 // 5. conflict(int i, int j): returns true if there is a conflict between i and j, 
@@ -75,7 +75,7 @@ double dist_min(int i, int j){
 bool conflict(int i, int j){
 	double xr0=x_0[i]-x_0[j];
 	double yr0=y_0[i]-y_0[j];
-    	double zr0=z_0[i]-z_0[j];
+  double zr0=z_0[i]-z_0[j];
 	double vrx=vx[i]-vx[j];
 	double vry=vy[i]-vy[j];
 	double vrz=vz[i]-vz[j];
@@ -88,7 +88,7 @@ bool conflict(int i, int j){
 double duration(int i, int j){
 	double xr0=x_0[i]-x_0[j];
 	double yr0=y_0[i]-y_0[j];
-    	double zr0=z_0[i]-z_0[j];
+  double zr0=z_0[i]-z_0[j];
 	double vrx=vx[i]-vx[j];
 	double vry=vy[i]-vy[j];
 	double vrz=vz[i]-vz[j];
@@ -158,9 +158,7 @@ double norm(float* vector, int dimension){
 	double accum = 0.;
 	double norm = 0;
 	for (int j = 0; j < dimension; ++j) 
-		{
-        accum += (double)(vector[j]) * (double)(vector[j]);
-    	}
+		{accum += (double)(vector[j]) * (double)(vector[j]);}
     norm = sqrt((double) accum);
 	return norm;
 }
@@ -221,7 +219,7 @@ void printBenchmarkInfo(){
     		if(conflict(i,j)){
     			printf("(%i, %i) with distance at the time of minimal separation: %f,",i+1,j+1,sqrt(dist_min(i,j)));
     			printf(" and duration of conflict: %f.\n",duration(i,j));
-				conf_aircraft[i]++;
+					conf_aircraft[i]++;
     			conf_aircraft[j]++;
     			num_conflicts++;
     		}
