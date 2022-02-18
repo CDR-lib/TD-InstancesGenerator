@@ -218,7 +218,7 @@ void printBenchmarkInfo(){
 		for (int j = i+1; j < n; ++j){
 			if(conflict(i,j)){
 				printf("(%i, %i) with distance at the time of minimal separation: %f,",i+1,j+1,sqrt(dist_min(i,j)));
-				printf(" and duration of conflict: %f.\n",duration(i,j));
+				printf(" and duration of conflict: %f hour.\n",duration(i,j));
 				conf_aircraft[i]++;
 				conf_aircraft[j]++;
 				num_conflicts++;
@@ -978,7 +978,7 @@ void pseudoRandomP_iniPos(char* air_config,float height,float width, float altit
 				{D=min(horizontal_step,vertical_step);}
 			else
 				{D=min(horizontal_step,min(vertical_step,altitude_step));} 
-		printf("random Problem Generator: safety distance D too big, using %f\n",D);
+		printf("random Problem Generator: safety distance D too big, using %f NM.\n",D);
 	}
 	int cont=0; // counts the number of aircraft for which we have alrady generated (x_0,y_0,z_0)
 	int excess_n=new_n-n; // if more cells than n some of them will be skipped
@@ -2309,7 +2309,7 @@ int main(int argc, char **argv) {
 		printf("WARNING: At least one unvalid bound for velocity: %f, %f",vmin, vmax);
 		vmin=400;
 		vmax=400;
-		printf(", set to default: vmin=vmax=%f\n",vmin);
+		printf(", set to default: vmin=vmax=%f NM/h.\n",vmin);
 		
 	}
 	if  ((mode==8 || mode==9)&& sector_ini_z+sector_angle_z>M_PI){
