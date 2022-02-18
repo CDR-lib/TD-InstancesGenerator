@@ -16,7 +16,7 @@ do
       do
         let maxc=$min_maxc+$step
         printf "$n\t$prop\t$size\t$nc\t$maxc" >> output_tests
-        ./a.out -mode 6 -n $n -nc $nc -maxc $maxc -w $size -h $size >> output_tests
+        ./generator -mode 6 -n $n -nc $nc -maxc $maxc -w $size -h $size >> output_tests
       done
     done
   done
