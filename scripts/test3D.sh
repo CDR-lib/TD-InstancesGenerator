@@ -1,6 +1,6 @@
 #!/bin/bash
 export LC_NUMERIC="en_US.UTF-8"
-echo -e "n \t prop \t nc \t maxc \t pc \t total_conflicts \t max_conf \t aircraft_zeroConfs" >> output_tests
+echo -e "n \t prop \t size \t nc \t maxc \t pc \t n'c \t distmin \t duration" >> output_tests
 for n in 10 15 20 25 30 35 40 45 50 75 100 
 do
   for prop in  0.05 0.10 0.15 0.20 0.25
@@ -16,8 +16,7 @@ do
       do
         let maxc=$min_maxc+$step
         printf "$n\t$prop\t$size\t$nc\t$maxc" >> output_tests
-        
-        ./a.out -mode 14 -n $n -nc $nc -maxc $maxc -w $size -h $size -a $size >> output_tests
+        ./generator -mode 14 -n $n -nc $nc -maxc $maxc -w $size -h $size -a $size >> output_tests
       done
     done
   done
