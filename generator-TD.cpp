@@ -163,7 +163,7 @@ double norm(float* vector, int dimension){
 	return norm;
 }
 //--------------------------------------------------------------------------
-//								 I/O functions
+//				I/O functions
 //--------------------------------------------------------------------------
 void printBenchmarkInfo(){
 	printf("\n--------------------------------------------------------------------------------------------------\n");
@@ -299,26 +299,26 @@ void printBenchmarkInfo(){
 There are 15 scenarios in total, each one has an associated code in the variable "mode"
 - 2D Scenarios:
 	*Predefined:
-		+ circle 		--> mode= 0
+		+ circle 	--> mode= 0
 		+ randomCircle  --> mode= 1
-		+ rombo  		--> mode= 2
+		+ rombo  	--> mode= 2
 		+ randomRombo   --> mode= 3
-		+ grid  		--> mode= 4
+		+ grid  	--> mode= 4
 		+ randomGrid	--> mode= 5
 	*Random:
 		+ pseudorandom  --> mode= 6
-		+ random 		--> mode= 7
+		+ random 	--> mode= 7
 - 3D Scenarios:
 	*Predefined:
-		+ sphere			--> mode= 8
+		+ sphere		--> mode= 8
 		+ randomsphere 		--> mode= 9
 		+ Polyhedral		--> mode= 10
-		+ randomPolyhedralP --> mode= 11
-		+ Grid3d			--> mode= 12
+		+ randomPolyhedralP 	--> mode= 11
+		+ Grid3d		--> mode= 12
 		+ randomGrid3d  	--> mode= 13
 	*Random:
 		+ pseudorandom  	--> mode= 14
-		+ random 			--> mode= 15  
+		+ random 		--> mode= 15  
 */
 
 // --------------------------------------------------------------------------
@@ -389,9 +389,9 @@ void randomRomboP(double alpha_r,int horiz_trails,int verti_trails,int nx,int ny
 	// Loop to create trajectories at horizontal trails:
 	for (int i = 0; i < horiz_trails; ++i){  
 		for (int k = 0; k < nx; ++k){			// * *------------------------------- i= horiz_trails-1
-			x_0[i*nx+k]=k*d_aircraft;			// * *------------------------------- i=2
+			x_0[i*nx+k]=k*d_aircraft;		// * *------------------------------- i=2
 			y_0[i*nx+k]=first_height+i*dx;		// * *------------------------------- i=1
-			v=randomFloat(vmin,vmax);			// * *------------------------------- i=0
+			v=randomFloat(vmin,vmax);		// * *------------------------------- i=0
 			dev=randomFloat(hamin,hamax);		// *=aircraft, in this example nx=2 aircraft per trail
 			vx[i*nx+k]=v*cos(dev);
 			vy[i*nx+k]=v*sin(dev);
@@ -414,11 +414,11 @@ void randomRomboP(double alpha_r,int horiz_trails,int verti_trails,int nx,int ny
 	}
 	// Loop to create trajectories at vertical trails
 	for (int i = 0; i < verti_trails; ++i){     
-		for (int k = 0; k < ny; ++k){       									//----/---/---/---/---/---/---- 
+		for (int k = 0; k < ny; ++k){       						//----/---/---/---/---/---/---- 
 			x_0[cont+i*ny+k]=ini_width+sign*i*dy+k*d_aircraft*cos(alpha_r); 	//----/---/---/---/---/---/-----
-			y_0[cont+i*ny+k]=k*d_aircraft*sin(alpha_r);							//----/---/---/---/---/---/-----								
-			v=randomFloat(vmin,vmax);											//---/---/---/---/---/---/-----
-			dev=randomFloat(hamin,hamax);					  					// i=0  i=1  i=2	i=verti_trails-1
+			y_0[cont+i*ny+k]=k*d_aircraft*sin(alpha_r);				//----/---/---/---/---/---/-----								
+			v=randomFloat(vmin,vmax);						//---/---/---/---/---/---/-----
+			dev=randomFloat(hamin,hamax);						// i=0  i=1  i=2	i=verti_trails-1
 			vx[cont+i*ny+k]=v*cos(alpha_r+dev);
 			vy[cont+i*ny+k]=v*sin(alpha_r+dev);
 			hat_v[cont+i*ny+k]=v;
@@ -553,7 +553,7 @@ void randomPolyhedralP(double* alpha,double* beta,int* mx,int* my,int* mz,int nx
 				x_0[cont+i*nx+k]=k*d_aircraft;			// * *------------------------------- i=2
 				y_0[cont+i*nx+k]=first_mx[j]+i*dx;		// * *------------------------------- i=1
 				z_0[cont+i*nx+k]=first_HP+j*d_HP;		// * *------------------------------- i=0
-				v=randomFloat(vmin,vmax);				// *=aircraft, in this example nx=2 aircraft per trail     
+				v=randomFloat(vmin,vmax);			// *=aircraft, in this example nx=2 aircraft per trail     
 				dev=randomFloat(hamin,hamax);		 
 				vx[cont+i*nx+k]=v*cos(dev);
 				vy[cont+i*nx+k]=v*sin(dev);
@@ -575,11 +575,11 @@ void randomPolyhedralP(double* alpha,double* beta,int* mx,int* my,int* mz,int nx
 			sign=-1;}
 		// Loop to create trajectories at sloping trails
 		for (int i = 0; i < my[j]; ++i){  
-			for (int k = 0; k < ny; ++k){										//----/---/---/---/---/---/---- 
+			for (int k = 0; k < ny; ++k){						//----/---/---/---/---/---/---- 
 				x_0[cont+i*ny+k]=ini_my+sign*i*dy+k*d_aircraft*cos(alpha[j]); 	//----/---/---/---/---/---/-----
-				y_0[cont+i*ny+k]=k*d_aircraft*sin(alpha[j]);					//----/---/---/---/---/---/------									
-				z_0[cont+i*ny+k]=first_HP+j*d_HP;								//----/---/---/---/---/---/------
-				v=randomFloat(vmin,vmax);						 				// i=0  i=1  i=2     	  i=my-1
+				y_0[cont+i*ny+k]=k*d_aircraft*sin(alpha[j]);			//----/---/---/---/---/---/------									
+				z_0[cont+i*ny+k]=first_HP+j*d_HP;				//----/---/---/---/---/---/------
+				v=randomFloat(vmin,vmax);					// i=0  i=1  i=2     	  i=my-1
 				dev=randomFloat(hamin,hamax);
 				vx[cont+i*ny+k]=v*cos(alpha[j]+dev);
 				vy[cont+i*ny+k]=v*sin(alpha[j]+dev);
@@ -610,9 +610,9 @@ void randomPolyhedralP(double* alpha,double* beta,int* mx,int* my,int* mz,int nx
 		for (int i = 0; i < mz[j]; ++i){  
 			for (int k = 0; k < nz; ++k){
 				x_0[cont+i*nz+k]=ini_mz+sign*i*dz+k*d_aircraft*cos(beta[j]); 	//----/---/---/---/---/---/-----
-				y_0[cont+i*nz+k]=first_VP+j*d_VP;								//----/---/---/---/---/---/------									
-				z_0[cont+i*nz+k]=k*d_aircraft*sin(beta[j]);						//----/---/---/---/---/---/------
-				v=randomFloat(vmin,vmax);						  				// i=0  i=1  i=2  	  i=mz[j]-1
+				y_0[cont+i*nz+k]=first_VP+j*d_VP;				//----/---/---/---/---/---/------									
+				z_0[cont+i*nz+k]=k*d_aircraft*sin(beta[j]);			//----/---/---/---/---/---/------
+				v=randomFloat(vmin,vmax);					// i=0  i=1  i=2  	  i=mz[j]-1
 				dev=randomFloat(hamin,hamax);
 				vx[cont+i*nz+k]=v*cos(beta[j]+dev);
 				vy[cont+i*nz+k]=0;
@@ -709,29 +709,29 @@ void pseudoRandomP_iniPos(char* air_config,float height,float width, float altit
 	int all=0; // will be set to 1 if the selected configuration is 'all'													
 	if(is3D==false){
 		a=1; //it should be 0, but we set it to 1 in order to avoid an undefined altitude_step = altitude/a in the following
-		if(strcmp(air_config,"W-N")==0){					// Scenario W-N: (in the example, m=5 (rows), l=4 (columns))	
-			l=(n+1)/(height/width+1);						//  x  x  x  x  	
-			m=ceil(height*l/width);							//  x
-			l=ceil(l);										//  x
-			new_n=m+l-1; // number of "x" in the example:8	//  x								
-		}													//  x
-		else if(strcmp(air_config,"N-S")==0){				// Scenario N-S:
-			l=n/2.0;										//  x  x  x  x  x
+		if(strcmp(air_config,"W-N")==0){			// Scenario W-N: (in the example, m=5 (rows), l=4 (columns))	
+			l=(n+1)/(height/width+1);				//  x  x  x  x  	
+			m=ceil(height*l/width);					//  x
+			l=ceil(l);						//  x
+			new_n=m+l-1; // number of "x" in the example:8		//  x								
+		}								//  x
+		else if(strcmp(air_config,"N-S")==0){			// Scenario N-S:
+			l=n/2.0;						//  x  x  x  x  x
 			m=ceil(height*l/width); 
 			l=ceil(l);
-			new_n=2*l;										//  x  x  x  x  x	
-		}													// Scenario W-E:
+			new_n=2*l;						//  x  x  x  x  x	
+		}							// Scenario W-E:
 		else if(strcmp(air_config,"W-E")==0){				//  x			x
-			m=n/2.0;										//  x			x
-			l=ceil(width*m/height);							//  x			x
-			m=ceil(m);										//  x			x
-			new_n=2*m;										//  x			x
-		}										 			// Scenario all:
-		else{												//  x  x  x  x  x
-			l=(n+4)/(2*(height/width+1));					//  x			x
-			m=ceil(height*l/width);							//  x			x
-			l=ceil(l);										//  x			x
-			new_n=2*m+2*l-4;								//  x  x  x  x  x
+			m=n/2.0;						//  x			x
+			l=ceil(width*m/height);					//  x			x
+			m=ceil(m);						//  x			x
+			new_n=2*m;						//  x			x
+		}							// Scenario all:
+		else{								//  x  x  x  x  x
+			l=(n+4)/(2*(height/width+1));				//  x			x
+			m=ceil(height*l/width);					//  x			x
+			l=ceil(l);						//  x			x
+			new_n=2*m+2*l-4;					//  x  x  x  x  x
 			all=1;
 			if(strcmp(air_config,"all")!=0 and verbose)
 				printf("Pseudo-random Problem Generator: unvalid or unexisting airspace configuration for random scenario, using default\n");
