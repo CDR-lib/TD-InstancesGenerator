@@ -68,7 +68,7 @@ double dist_min(int i, int j){
 	float negative_zero=-1/std::numeric_limits<float>::infinity();
 	double a = (vrx*xr0+vry*yr0+vrz*zr0);
 	double dmin = (xr0*xr0+yr0*yr0+zr0*zr0) - (a*a)/(vrx*vrx+vry*vry+vrz*vrz); 	//minimum distance among i and j
-	return dmin;
+	return abs(dmin);
 }
 // 5. conflict(int i, int j): returns true if there is a conflict between i and j, 
 //  i.e., if the separation constraints with safety distance D are not satisfied by their trajectories
