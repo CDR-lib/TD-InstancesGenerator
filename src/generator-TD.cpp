@@ -170,14 +170,6 @@ void printBenchmarkInfo(){
 	printf("Scenario generated: Instance with %i aircraft, characterized by initial positions and velocities:\n",n);
 	printf("--------------------------------------------------------------------------------------------------\n");
 	//---------------------benchmark output
-	if(outputFile){
-		printf("Instance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
-		freopen(outputFile, "a", stdout);
-	}
-	else{
-		printf("Instance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
-		freopen("instance.dat", "a", stdout);
-	}
 	printf("p0={\n"); //initial position
 	for (int i = 0; i < n; ++i){
 		printf("%f \t %f",x_0[i],y_0[i]);
@@ -238,8 +230,15 @@ void printBenchmarkInfo(){
 	}
 	printf("\nProportion of aircraft with one conflict or more: %f\nTotal pairs in conflict: %i\n",aircraft_conflict/(n*1.0),num_conflicts);
 	printf("Proportion of pairs of conflicts: %f\n",(2.0*num_conflicts)/(n*(n-1)));
-	printf("Graphical representation saved in Figure.tex\n");
-
+	if(outputFile){
+		printf("Instance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
+		freopen(outputFile, "a", stdout);
+	}
+	else{
+		printf("Instance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
+		freopen("instance.dat", "a", stdout);
+	}
+	
 	// Generate Latex file with figure 
 	string colors[18]={ "brown", "cyan", "blue","green", 
 						"lightgray", "lime", "magenta", "olive", "gray",  "orange", 
