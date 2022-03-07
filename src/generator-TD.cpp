@@ -171,8 +171,12 @@ void printBenchmarkInfo(){
 	printf("--------------------------------------------------------------------------------------------------\n");
 	//---------------------benchmark output
 	if(outputFile){
-		printf("Instance saved in file %s\n",outputFile);
+		printf("Instance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
 		freopen(outputFile, "a", stdout);
+	}
+	else{
+		printf("Instance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
+		freopen("instance.dat", "a", stdout);
 	}
 	printf("p0={\n"); //initial position
 	for (int i = 0; i < n; ++i){
@@ -205,8 +209,9 @@ void printBenchmarkInfo(){
 		printf("\n");
 	}
 	printf("}\n");
-	if(outputFile)
-		freopen("/dev/tty", "w", stdout); /*restore output*/
+
+	freopen("/dev/tty", "w", stdout); /*restore output*/
+	
 	printf("--------------------------------------------------------------------------------------------------\n");
 	printf("Some additional information about the instance you just generated:\n");
 	printf("--------------------------------------------------------------------------------------------------\n");
