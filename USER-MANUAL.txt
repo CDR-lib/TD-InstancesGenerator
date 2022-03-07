@@ -135,7 +135,7 @@ The corresponding scenario will be polyhedral, with 3 horizontal planes and 2 ve
 6-PR2- 2D pseudo-random problem: ./generator -mode 6 -n 20 -nc 21 -h 300
 7-R2- 2D random problem: ./generator -mode 7 -n 20 -w 500 -seed 1
 8-SP- Sphere problem: ./generator -mode SP -n 13 -r 300 -secAngx 3.14 -secInizd 45 -secAngzd 45
-9-RSP- Random sphere problem: ./generator -mode RSP -secAngxd 45 -hamin 0 -hamax 0.45
+9-RSP- Random sphere problem: ./generator -mode RSP -secAngxd 45 -hamin 0 -hamax 0.30
 10-PL- Polyhedral problem: ./generator -mode PL -VP 3 -mx 2 -ny 2 -alphad 45 30 -d_aircraft 13
 11-RPL- Random polyhedral problem: ./generator -mode 11 -my 4 -mz 2 -betad 20 230
 12-QP- Cubic problem: ./generator -mode 12 -HP 3 -mx 3 3 -my 4 4 4 -dHP 30
