@@ -31,7 +31,7 @@ The coordinates of initial positions of aircraft are represented with the follow
 See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances generator", for more details.
 
 *** General flags:
--V 		[] [verbose=off] (set verbose output on)
+-V 		[] [verbose=off] (set verbose output on, for pseudo-random configuration)
 -f      ["instance_file_name"] [output to console] (print generated instance to a file)
 -seed	[random_seed] [14]
 -mode	[0,...,8/ "CP","RCP","RP","RRP","GP","RGP","PR","R","SP","RSP","PL","RPL","G3dP","RG3dP"] [6]
