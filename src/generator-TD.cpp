@@ -2367,7 +2367,7 @@ int main(int argc, char **argv) {
 		if( mode==2 || mode==3 ){// rhomboidal problem
 			alpha_r=correctAngle(alpha_r);
 			if(alpha_r < 0){
-				alpha_r=M_PI/6;
+				alpha_r=M_PI/4;
 				printf("Rhomboidal Problem generator: unvalid crossing angle, set to default=%f\n",alpha_r);
 			}
 		} 
