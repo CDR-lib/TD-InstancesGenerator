@@ -36,9 +36,9 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -mode	[0,...,15/ "CP","RCP","RP","RRP","GP","RGP","PR2","R2","SP","RSP","PL","RPL","QP","RQP","PR3","R3"] [6]
         0/"CP": circle
         1/"RCP": random circle
-    	   2/"RP": rhomboidal
-    	   3/"RRP": random rhomboidal
-    	   4/"GP": grid
+        2/"RP": rhomboidal
+        3/"RRP": random rhomboidal
+        4/"GP": grid
     	   5/"RGP": random grid
     	   6/"PR2": 2D pseudo-random
     	   7/"R2": 2D random 
