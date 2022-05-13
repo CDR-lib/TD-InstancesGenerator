@@ -11,4 +11,4 @@ You will be able to generate:
 	
 	* Pseudo-random 2D and 3D scenarios, where the trajectories meet a predefined traffic congestion.
 
-
+The "src" folder contains generator's source (.cpp) code. The "scripts" folder contains bash scripts which can be executed to perform the computational study reported in Section 4 of the paper. Finally, in the "results" folder, several figures associated to different generable configurations are collected.
