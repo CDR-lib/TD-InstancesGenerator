@@ -34,7 +34,7 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -f   ["instance_file_name"] [instance] (print generated instance to a file with a specific name)
 -seed	[random_seed] [14]
 -mode	[0,...,15/ "CP","RCP","RP","RRP","GP","RGP","PR2","R2","SP","RSP","PL","RPL","QP","RQP","PR3","R3"] [6]
-    	   0/"CP": circle
+        0/"CP": circle
         1/"RCP": random circle
     	   2/"RP": rhomboidal
     	   3/"RRP": random rhomboidal
