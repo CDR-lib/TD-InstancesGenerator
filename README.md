@@ -11,7 +11,7 @@ You will be able to generate:
 	
 	* Pseudo-random 2D and 3D scenarios, where the trajectories meet a predefined traffic congestion.
 
-The [https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/src]src folder contains generator's source (.cpp) code. The [https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/scripts](scripts) folder contains bash scripts which can be executed to perform the computational study reported in Section 4 of the paper. Finally, in the [https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/figures](figures) folder several figures associated to different generable configurations are collected to illustrate the potential outputs of the generator.
+The [src](https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/src) folder contains generator's source (.cpp) code. The [https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/scripts](scripts) folder contains bash scripts which can be executed to perform the computational study reported in Section 4 of the paper. Finally, in the [https://github.com/CDR-lib/TD-InstancesGenerator/tree/main/figures](figures) folder several figures associated to different generable configurations are collected to illustrate the potential outputs of the generator.
 
 
 # Generating instances and replicating results
