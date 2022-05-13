@@ -78,7 +78,7 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
 -dVP        [distance between consecutive VPs] [3*D]  (only polyhedral)
 -mx         [list of number of horizontal trails at each horizontal plane, separated by spaces] [2 2 2]
 -my         [list of number of slopping trails at each horizontal plane, separated by spaces] [2 2 2]      
--mz         [list of number of sloppingl trails at each vertical plane, separated by spaces] [2 2]  (only polyhedral)
+-mz         [list of number of slopping trails at each vertical plane, separated by spaces] [2 2]  (only polyhedral)
 -nx         [number of aircraft on each horizontal trail] [1]
 -ny         [number of aircraft on each slopping trail located at a horizontal plane] [1]
 -nz         [number of aircraft on each slopping trail located at a vertical plane] [1] (only polyhedral)
