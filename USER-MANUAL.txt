@@ -39,11 +39,11 @@ See M. Pelegrín and M.Cerulli (2021) "A tactical deconfliction instances genera
         2/"RP": rhomboidal
         3/"RRP": random rhomboidal
         4/"GP": grid
-    	   5/"RGP": random grid
-    	   6/"PR2": 2D pseudo-random
-    	   7/"R2": 2D random 
-    	   8/"SP": sphere
-    	   9/"RSP": random sphere
+        5/"RGP": random grid
+        6/"PR2": 2D pseudo-random
+        7/"R2": 2D random 
+        8/"SP": sphere
+        9/"RSP": random sphere
         10/"PL": polyhedral
         11/"RPL": random polyhedral
         12/"QP": cubic
