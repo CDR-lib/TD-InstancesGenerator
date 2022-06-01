@@ -3,7 +3,7 @@ In particular, this program is to produce testing instances of the Tactical Deco
  
 Every feedback is very welcome. If you have found a bug or have problems, or wish to give us any advise, please contact us:
 
-mcerulli@lix.polytechnique.fr
+cerulli@essec.edu
 pelegringarcia@lix.polytechnique.fr
 
 Paris, 13 May 2022
