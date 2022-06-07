@@ -1,6 +1,6 @@
 #!/bin/bash
 export LC_NUMERIC="en_US.UTF-8"
-echo -e "n \t prop \t size \t nc \t maxc \t pc \t n'c \t distmin \t duration" >> output_tests
+echo -e "n \t prop \t size \t nc \t maxc \n" >> output_tests
 for n in 10 15 20 25 30 35 40 45 50 75 100 
 do
   for prop in  0.05 0.10 0.15 0.20 0.25
