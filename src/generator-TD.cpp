@@ -167,17 +167,15 @@ double norm(float* vector, int dimension){
 //				I/O functions
 //--------------------------------------------------------------------------
 void printBenchmarkInfo(){
-	printf("\n--------------------------------------------------------------------------------------------------\n");
-	printf("Scenario generated: Instance with %i aircraft, characterized by initial positions and velocities:\n",n);
-	printf("--------------------------------------------------------------------------------------------------\n");
-	//---------------------benchmark output
 	if(outputFile){
-		printf("Instance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
-		freopen(outputFile, "a", stdout);
+		printf("\n--------------------------------------------------------------------------------------------------\n");
+		printf("\nInstance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
+		freopen(outputFile, "w", stdout);
 	}
 	else{
-		printf("Instance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
-		freopen("instance.dat", "a", stdout);
+		printf("\n--------------------------------------------------------------------------------------------------\n");
+		printf("\nInstance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
+		freopen("instance.dat", "w", stdout);
 	}
 	printf("p0={\n"); //initial position
 	for (int i = 0; i < n; ++i){
@@ -213,10 +211,44 @@ void printBenchmarkInfo(){
 
 	freopen("/dev/tty", "w", stdout); /*restore output*/
 	
+	//------------------------------------------------------------
+	printf("\n--------------------------------------------------------------------------------------------------\n");
+	printf("Scenario generated: Instance with %i aircraft, characterized by initial positions and velocities:\n",n);
+	//---------------------benchmark output	
+	printf("p0={\n"); //initial position
+	for (int i = 0; i < n; ++i){
+		printf("%f \t %f",x_0[i],y_0[i]);
+		if (is3D) printf("\t %f",z_0[i]);
+		printf("\n");
+	}
+	printf("}\n");
+	// printf("p1={\n"); //final position
+	// for (int i = 0; i < n; ++i){
+	// 	printf("%f \t %f",x_t[i],y_t[i]);
+	// 	if (is3D) printf("\t %f",z_t[i]);
+	// 	printf("\n");
+	// }
+	// printf("}\n");
+	printf("V_polar=(v,theta"); //polar velocity i.e. (hat_v,hat_theta,hat_phi)
+	if (is3D) printf(",phi");
+	printf(")={\n");
+	for (int i = 0; i < n; ++i){
+		printf("%f \t %f",hat_v[i],correctAngle(hat_theta[i]));
+		if (is3D) printf("\t %f",correctAngle(hat_phi[i]));
+		printf("\n");
+	}
+	printf("}\n");
+	//---------------------complementary output
+	printf("(Vx,Vy,Vz)={\n"); //components of the velocity
+	for (int i = 0; i < n; ++i){
+		printf("%f \t %f",vx[i],vy[i]);
+		if (is3D) printf("\t %f",vz[i]);
+		printf("\n");
+	}
+	printf("}\n");
 	printf("--------------------------------------------------------------------------------------------------\n");
 	printf("Some additional information about the instance you just generated:\n");
-	printf("--------------------------------------------------------------------------------------------------\n");
-	printf("Pairs in conflict:\n");
+	printf("\nPairs in conflict:\n");
 	int num_conflicts=0;
 	int conf_aircraft[n];
 	for (int i = 0; i < n; ++i) conf_aircraft[i]=0;
