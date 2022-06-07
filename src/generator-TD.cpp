@@ -170,82 +170,108 @@ void printBenchmarkInfo(){
 	if(outputFile){
 		printf("\n--------------------------------------------------------------------------------------------------\n");
 		printf("\nInstance saved in file: \"%s\", with a graphical representation in: \"Figure.tex\".\n",outputFile);
-		freopen(outputFile, "w", stdout);
+		ofstream f(outputFile);
+		f<<std::setprecision(5);
+		f<<"p0={\n";
+		printf("p0={\n"); //initial position
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",x_0[i],y_0[i]);
+			f<<x_0[i]<<" \t "<<y_0[i];
+			if (is3D) {printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		// printf("p1={\n"); //final position
+		// for (int i = 0; i < n; ++i){
+		// 	printf("%f \t %f",x_t[i],y_t[i]);
+		// 	if (is3D) printf("\t %f",z_t[i]);
+		// 	printf("\n");
+		// }
+		// printf("}\n");
+		printf("V_polar=(v,theta"); //polar velocity i.e. (hat_v,hat_theta,hat_phi)
+		f << "V_polar=(v,theta";
+		if (is3D) {printf(",phi"); f<<",phi";}
+		printf(")={\n");
+		f<<")={\n";
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",hat_v[i],correctAngle(hat_theta[i]));
+			f<<hat_v[i]<<" \t "<<correctAngle(hat_theta[i]);
+			if (is3D) {printf("\t %f",correctAngle(hat_phi[i])); f<<"\t "<<correctAngle(hat_phi[i]);}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		//---------------------complementary output
+		printf("(Vx,Vy"); //components of the velocity
+		f<<"(Vx,Vy";
+		if (is3D) {printf(",Vz"); f<<",Vz";}
+		printf(")={\n");
+		f<<")={\n";
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",vx[i],vy[i]);
+			f<<vx[i]<<" \t "<<vy[i];
+			if (is3D) {printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		f.close();
 	}
 	else{
 		printf("\n--------------------------------------------------------------------------------------------------\n");
 		printf("\nInstance saved in file: \"instance.dat\", with a graphical representation in: \"Figure.tex\".\n");
-		freopen("instance.dat", "w", stdout);
+		ofstream f("instance.dat");
+		f<<std::setprecision(5);
+		f<<"p0={\n";
+		printf("p0={\n"); //initial position
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",x_0[i],y_0[i]);
+			f<<x_0[i]<<" \t "<<y_0[i];
+			if (is3D) {printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		// printf("p1={\n"); //final position
+		// for (int i = 0; i < n; ++i){
+		// 	printf("%f \t %f",x_t[i],y_t[i]);
+		// 	if (is3D) printf("\t %f",z_t[i]);
+		// 	printf("\n");
+		// }
+		// printf("}\n");
+		printf("V_polar=(v,theta"); //polar velocity i.e. (hat_v,hat_theta,hat_phi)
+		f << "V_polar=(v,theta";
+		if (is3D) {printf(",phi"); f<<",phi";}
+		printf(")={\n");
+		f<<")={\n";
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",hat_v[i],correctAngle(hat_theta[i]));
+			f<<hat_v[i]<<" \t "<<correctAngle(hat_theta[i]);
+			if (is3D) {printf("\t %f",correctAngle(hat_phi[i])); f<<"\t "<<correctAngle(hat_phi[i]);}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		//---------------------complementary output
+		printf("(Vx,Vy,Vz)={\n"); //components of the velocity
+		f<<"(Vx,Vy,Vz)={\n";
+		for (int i = 0; i < n; ++i){
+			printf("%f \t %f",vx[i],vy[i]);
+			f<<vx[i]<<" \t "<<vy[i];
+			if (is3D) {printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
+			printf("\n");
+			f<<"\n";
+		}
+		printf("}\n");
+		f<<"}\n";
+		f.close();
 	}
-	printf("p0={\n"); //initial position
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",x_0[i],y_0[i]);
-		if (is3D) printf("\t %f",z_0[i]);
-		printf("\n");
-	}
-	printf("}\n");
-	// printf("p1={\n"); //final position
-	// for (int i = 0; i < n; ++i){
-	// 	printf("%f \t %f",x_t[i],y_t[i]);
-	// 	if (is3D) printf("\t %f",z_t[i]);
-	// 	printf("\n");
-	// }
-	// printf("}\n");
-	printf("V_polar=(v,theta"); //polar velocity i.e. (hat_v,hat_theta,hat_phi)
-	if (is3D) printf(",phi");
-	printf(")={\n");
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",hat_v[i],correctAngle(hat_theta[i]));
-		if (is3D) printf("\t %f",correctAngle(hat_phi[i]));
-		printf("\n");
-	}
-	printf("}\n");
-	//---------------------complementary output
-	printf("(Vx,Vy,Vz)={\n"); //components of the velocity
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",vx[i],vy[i]);
-		if (is3D) printf("\t %f",vz[i]);
-		printf("\n");
-	}
-	printf("}\n");
-
-	freopen("/dev/tty", "w", stdout); /*restore output*/
-	
-	//------------------------------------------------------------
-	printf("\n--------------------------------------------------------------------------------------------------\n");
-	printf("Scenario generated: Instance with %i aircraft, characterized by initial positions and velocities:\n",n);
-	//---------------------benchmark output	
-	printf("p0={\n"); //initial position
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",x_0[i],y_0[i]);
-		if (is3D) printf("\t %f",z_0[i]);
-		printf("\n");
-	}
-	printf("}\n");
-	// printf("p1={\n"); //final position
-	// for (int i = 0; i < n; ++i){
-	// 	printf("%f \t %f",x_t[i],y_t[i]);
-	// 	if (is3D) printf("\t %f",z_t[i]);
-	// 	printf("\n");
-	// }
-	// printf("}\n");
-	printf("V_polar=(v,theta"); //polar velocity i.e. (hat_v,hat_theta,hat_phi)
-	if (is3D) printf(",phi");
-	printf(")={\n");
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",hat_v[i],correctAngle(hat_theta[i]));
-		if (is3D) printf("\t %f",correctAngle(hat_phi[i]));
-		printf("\n");
-	}
-	printf("}\n");
-	//---------------------complementary output
-	printf("(Vx,Vy,Vz)={\n"); //components of the velocity
-	for (int i = 0; i < n; ++i){
-		printf("%f \t %f",vx[i],vy[i]);
-		if (is3D) printf("\t %f",vz[i]);
-		printf("\n");
-	}
-	printf("}\n");
 	printf("--------------------------------------------------------------------------------------------------\n");
 	printf("Some additional information about the instance you just generated:\n");
 	printf("\nPairs in conflict:\n");
