@@ -175,9 +175,11 @@ void printBenchmarkInfo(){
 		f<<"p0={\n";
 		printf("p0={\n"); //initial position
 		for (int i = 0; i < n; ++i){
+			if (abs(x_0[i])<0.0001){x_0[i]=0.00;}
+			if (abs(y_0[i])<0.0001){y_0[i]=0.00;}
 			printf("%f \t %f",x_0[i],y_0[i]);
 			f<<x_0[i]<<" \t "<<y_0[i];
-			if (is3D) {printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
+			if (is3D) {if (abs(z_0[i])<0.0001){z_0[i]=0.00;} printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
 			printf("\n");
 			f<<"\n";
 		}
@@ -211,9 +213,11 @@ void printBenchmarkInfo(){
 		printf(")={\n");
 		f<<")={\n";
 		for (int i = 0; i < n; ++i){
+			if (abs(vx[i])<0.0001){vx[i]=0.00;}
+			if (abs(vy[i])<0.0001){vy[i]=0.00;}
 			printf("%f \t %f",vx[i],vy[i]);
 			f<<vx[i]<<" \t "<<vy[i];
-			if (is3D) {printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
+			if (is3D) {if (abs(vz[i])<0.0001){vz[i]=0.00;} printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
 			printf("\n");
 			f<<"\n";
 		}
@@ -229,9 +233,11 @@ void printBenchmarkInfo(){
 		f<<"p0={\n";
 		printf("p0={\n"); //initial position
 		for (int i = 0; i < n; ++i){
+			if (abs(x_0[i])<0.0001){x_0[i]=0.00;}
+			if (abs(y_0[i])<0.0001){y_0[i]=0.00;}
 			printf("%f \t %f",x_0[i],y_0[i]);
 			f<<x_0[i]<<" \t "<<y_0[i];
-			if (is3D) {printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
+			if (is3D) {if (abs(z_0[i])<0.0001){z_0[i]=0.00;} printf("\t %f",z_0[i]); f<<"\t "<<z_0[i];}
 			printf("\n");
 			f<<"\n";
 		}
@@ -259,12 +265,17 @@ void printBenchmarkInfo(){
 		printf("}\n");
 		f<<"}\n";
 		//---------------------complementary output
-		printf("(Vx,Vy,Vz)={\n"); //components of the velocity
-		f<<"(Vx,Vy,Vz)={\n";
+		printf("(Vx,Vy"); //components of the velocity
+		f<<"(Vx,Vy";
+		if (is3D) {printf(",Vz"); f<<",Vz";}
+		printf(")={\n");
+		f<<")={\n";
 		for (int i = 0; i < n; ++i){
+			if (abs(vx[i])<0.0001){vx[i]=0.00;}
+			if (abs(vy[i])<0.0001){vy[i]=0.00;}
 			printf("%f \t %f",vx[i],vy[i]);
 			f<<vx[i]<<" \t "<<vy[i];
-			if (is3D) {printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
+			if (is3D) {if (abs(vz[i])<0.0001){vz[i]=0.00;} printf("\t %f",vz[i]); f<<"\t "<<vz[i];}
 			printf("\n");
 			f<<"\n";
 		}
