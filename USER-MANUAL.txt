@@ -148,7 +148,7 @@ The program will produce 2 files:
 
 1) instance.dat: contains the list of initial positions p0=(x0,y0,z0), and vectors of velocities of the aircraft (either in polar coordinates V_polar=(v,theta,phi) or in Cartesian coordinates V=(Vx,Vy,Vz)=(v*cos(theta)*sin(phi),v*sin(theta)*sin(phi),v*cos(phi))
 
-2) Figure.tex: LaTeX code (TikZ) for a graphical representation of the instance in a Cartesian coordinate system, i.e. initial positions and vectors of velocities of the aircraft. Each aircraft trajectory is represented with different colors. Use LaTeX compiler to generate a .pdf with the corresponding figure. You might need to change 'scale' in \begin{tikzpicture} [scale=...] for a proper visualization.
+2) Figure.tex: LaTeX code (TikZ) for a graphical representation of the instance in a Cartesian coordinate system, i.e. initial positions and vectors of velocities of the aircraft. The pairs in conflict, and the number of conflicts for each aircraft are reported as well. Each aircraft trajectory is represented with different colors. Use LaTeX compiler to generate a .pdf with the corresponding figure. You might need to change 'scale' in \begin{tikzpicture} [scale=...] for a proper visualization.
 
 
 Additional information on the generated instance can be found as output:
