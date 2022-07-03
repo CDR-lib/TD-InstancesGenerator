@@ -19,6 +19,8 @@ When using the generator to produce instances to test, different parameters shou
 If the generated instances are used as testbed, besides citing the paper "Aircraft conflict resolution: A benchmark generator", please specify to which values the different parameters are set. In this way, if anyone wants to use the same set of instances for testing purpose, it will only suffice to use the same values for the involved parameters.
 
 # Citing 
+Pelegr ́ın M, Cerulli M (2021) Benchmarking instances generator for aircraft conflict resolution. URL
+https://github.com/CDR-lib/TD-InstancesGenerator.
 
 # How to contribute
 Thank you for considering contributing to our project! To report bugs and ask questions, please refer to the official [issue tracker](https://github.com/CDR-lib/TD-InstancesGenerator/issues). You can also address a problem by (1) forking the project, (2) correcting the bug / adding a feature, and (3) generating a pull request. However, we recommend that you first contact the authors and discuss the desired feature request.
